@@ -1,0 +1,4 @@
+api_contents:
+    path: /api/contents
+    controller: App\Controller\ContentController::index
+    methods: GET

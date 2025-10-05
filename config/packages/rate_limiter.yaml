@@ -1,0 +1,11 @@
+framework:
+    rate_limiter:
+        contents_search:
+            policy: 'fixed_window'
+            limit: 5 # Maksimum 5 istek
+            interval: '10 seconds'  # 10 saniyelik zaman aralığı
+            cache_pool: 'cache.app'
+        provider_management:
+            policy: 'fixed_window'
+            limit: 5 # Maximum 5 istek
+            interval: '1 minute' # 1 dakikalık zaman aralığı
