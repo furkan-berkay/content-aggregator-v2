@@ -106,9 +106,11 @@ class ProviderService
             $params["keyword"] = "%$keyword%";
         }
 
-        $sql .= " ORDER BY $orderColumn $orderDir LIMIT :start, :length";
-        $params["start"]  = $start;
-        $params["length"] = $length;
+        if ($length >= 0) {
+            $sql .= " LIMIT :start, :length";
+            $params["start"]  = $start;
+            $params["length"] = $length;
+        }
 
         $stmt = $conn->executeQuery($sql, $params, [
             "type"    => \Doctrine\DBAL\ParameterType::STRING,

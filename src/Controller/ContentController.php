@@ -32,7 +32,8 @@ class ContentController extends AbstractController
 
         $draw   = (int) ($data["draw"] ?? 1);
         $start  = (int) ($data["start"] ?? 0);
-        $length = (int) ($data["length"] ?? 10);
+        $lengthRaw = (int) ($data["length"] ?? 10);
+        $length = $lengthRaw === -1 ? -1 : max(0, $lengthRaw);
 
         $type    = $data["type"] ?? null;
         $keyword = $data["keyword"] ?? null;
